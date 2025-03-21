@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from routes import Auth
+from sqlalchemy.orm import Session
 import uvicorn
 
 app = FastAPI()
