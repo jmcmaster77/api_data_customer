@@ -1,9 +1,9 @@
-from fastapi import FastAPI, APIRouter, Depends
+from fastapi import APIRouter
 from pydantic import BaseModel
-
-from models.Users import User
+from datetime import datetime
 from models.ModelUsersdb import Usuarios
 from utils.db import db
+from passlib.hash import sha256_crypt
 
 auth = APIRouter()
 
@@ -23,16 +23,24 @@ class Duser(BaseModel):
 @auth.post("/create_user")
 def new_user(user_data: Duser):
     try:
-        print("data user incoming", user_data)
-
         rc = db.query(Usuarios).filter_by(username=user_data.username).first()
-        # rc = Usuarios. query.filter_by(user_data.username).first()
-        print("request", rc)
 
-        return {"message": "recibido"}
+        if rc is None:
+            fecha = datetime.now()
+            # la base de datos acepta el datetime en ese formato
+            fecha = fecha.strftime("%Y/%m/%d %H:%M:%S")
+            password_encrypted = sha256_crypt.encrypt(user_data.password)
+            newuser = Usuarios(user_data.username, password_encrypted,
+                               user_data.fullname, user_data.rol, fecha, False)
+            db.add(newuser)
+            db.commit()
+            return {"message": f"usuario registrado con el id: {newuser.id}"}
+        else:
+            return {"message": f"usuario: {user_data.username} ya se encuentra registrado"}
+
     except Exception as e:
-        print("Error en la conexion ", e)
-        return {"message": "recibido pero hay un error con la db conexion"}
+        print("Error: ", e)
+        return {"message": f"recibido pero hay un error: {e}"}
 
 
 class UserGet(BaseModel):
