@@ -127,7 +127,8 @@ curl --request POST \
 }
 ```
 
-### Endpoint para consultar los usuarios registrados teniendo en cuenta que solo entrega un json con id, username, fullname, rol, y fecha con formado D M YY y HH MM, filtrando que la condicion donde delted = false para control del borrado logico
+### Endpoint para consultar los usuarios registrados 
+teniendo en cuenta que solo entrega un json con id, username, fullname, rol, y fecha con formado D M YY y HH MM, filtrando que el usuario no este marcado como borrado, donde deleted = false para control del borrado logico
 
 ```bash
 curl --request GET \
