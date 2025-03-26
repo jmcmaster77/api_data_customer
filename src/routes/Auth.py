@@ -46,7 +46,7 @@ def new_user(user_data: Duser):
 @auth.post("/create_users")
 def new_users(user_list: list[Duser]):
     try:
-        mensajes = {"Resgistros":[]}
+        mensajes = {"Resgistros": []}
         registro = 0
         for user_data in user_list:
             rc = db.query(Usuarios).filter_by(
@@ -68,5 +68,58 @@ def new_users(user_list: list[Duser]):
                 mensajes["Resgistros"].append(
                     {registro: f"usuario: {rc.username} con el id:{rc.id} ya se encuentra registrado"})
         return {"result": mensajes}
+    except Exception as e:
+        return {"Error": f"recibido pero hay un error: {e}"}
+
+
+@auth.get("/users")
+def get_users():
+    try:
+
+        # metodo donde me traigo solo los campos y le doy formato a la fecha y empaqueto el json como requiero 
+
+        registros = db.query(Usuarios).with_entities(
+             Usuarios.id, Usuarios.username, Usuarios.fullname, Usuarios.rol, Usuarios.fecha, Usuarios.deleted).all()
+
+        if registros is not None:
+            resultado = [
+                
+                {
+                    "id": row[0],
+                    "username": row[1],
+                    "fullname": row[2],
+                    "rol": row[3],
+                    "fecha": row[4].strftime("%d/%m/%y %H:%M")
+                }
+                
+                for row in registros 
+                    if row[5] is not True 
+            ]
+
+            return resultado
+        
+        # metodo donde consulto todos los datos obteniendo una lista de objetos pasando 
+        # los resultados a una variable para aplicar un filtro y dar formato a la fecha y solo los datos que desel enviar 
+
+        # registros = db.query(Usuarios).all()
+
+        # if registros is not None:
+        #     resultados = []
+        #     for registro in registros:
+        #         if registro.deleted is not True:
+        #             resultado = {
+        #                 "id": registro.id,
+        #                 "username": registro.username,
+        #                 "fullname": registro.fullname,
+        #                 "rol": registro.rol,
+        #                 "fecha" : registro.fecha.strftime("%d/%m/%y %H:%M"),
+        #             }
+        #             resultados.append(resultado)
+                    
+        #     return resultados
+        else:
+            
+            return {"message": "No hay usuarios registrados en la base de datos o.O"}
+
     except Exception as e:
         return {"Error": f"recibido pero hay un error: {e}"}
