@@ -127,6 +127,76 @@ curl --request POST \
 }
 ```
 
+### Endpoint para consultar los usuarios registrados teniendo en cuenta que solo entrega un json con id, username, fullname, rol, y fecha con formado D M YY y HH MM, filtrando que la condicion donde delted = false para control del borrado logico
+
+```bash
+curl --request GET \
+  --url http://127.0.0.1:5000/users
+```
+
+### Respuesta 
+
+```json
+[
+    {
+        "id": 1,
+        "username": "awalker",
+        "fullname": "Allan Walker",
+        "rol": "admin",
+        "fecha": "23/03/25 21:59"
+    },
+    {
+        "id": 2,
+        "username": "naruto_uzumaki",
+        "fullname": "Naruto Uzumaki",
+        "rol": "operator",
+        "fecha": "25/03/25 02:07"
+    },
+    {
+        "id": 3,
+        "username": "sakura_haruno",
+        "fullname": "Sakura Haruno",
+        "rol": "operator",
+        "fecha": "25/03/25 02:30"
+    },
+    {
+        "id": 4,
+        "username": "eren_jaeger",
+        "fullname": "Eren Jaeger",
+        "rol": "operator",
+        "fecha": "25/03/25 02:30"
+    },
+    {
+        "id": 5,
+        "username": "mikasa_ackerman",
+        "fullname": "Mikasa Ackerman",
+        "rol": "operator",
+        "fecha": "25/03/25 02:30"
+    },
+    {
+        "id": 6,
+        "username": "goku_saiyan",
+        "fullname": "Goku Saiyan",
+        "rol": "operator",
+        "fecha": "25/03/25 02:30"
+    },
+    {
+        "id": 7,
+        "username": "luffy_d_monkey",
+        "fullname": "Monkey D. Luffy",
+        "rol": "operator",
+        "fecha": "25/03/25 02:30"
+    },
+    {
+        "id": 8,
+        "username": "light_yagami",
+        "fullname": "Light Yagami",
+        "rol": "operator",
+        "fecha": "25/03/25 02:30"
+    }
+]
+```
+
 > [!NOTE]
 > En desarrollo a partir de aqui ^^ ☕ no leer es informacion de otro proyecto -_-
 
