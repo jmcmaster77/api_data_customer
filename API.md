@@ -198,6 +198,62 @@ curl --request GET \
 ]
 ```
 
+## Endpoint para consultar la data de un usuario con un json con el tipo de opcion y un parametro, donde la opcion puede ser por id ó username
+
+```bash
+curl --request POST \
+http://localhost:5000/user_info
+```
+
+Json con parametros para busqueda por id 
+```bash
+{
+    "type":"id",
+    "param":"1"
+}
+```
+
+respuesta 
+
+```json
+{
+    "id": 1,
+    "username": "awalker",
+    "fullname": "Allan Walker",
+    "rol": "admin",
+    "registrado": "23/03/25 21:59",
+    "deleted": false
+}
+```
+
+Json con parametros para busqueda por username 
+```bash
+{
+    "type":"username",
+    "param":"light_yagami"
+}
+```
+respuesta 
+
+```json
+{
+    "id": 8,
+    "username": "light_yagami",
+    "fullname": "Light Yagami",
+    "rol": "operator",
+    "registrado": "25/03/25 02:30",
+    "deleted": false
+}
+```
+
+En caso de no existir la informacion del usuario 
+
+```json
+{
+    "message": "la busqueda del usuario con el tipo de busqueda username y el parametro light_yagam no arrojo resultados"
+}
+```
+
 > [!NOTE]
 > En desarrollo a partir de aqui ^^ ☕ no leer es informacion de otro proyecto -_-
 
@@ -257,6 +313,7 @@ respuesta
   },
 ]
 ```
+
 ## Registro de Persona
 
 ```bash
