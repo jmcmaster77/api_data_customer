@@ -254,6 +254,66 @@ En caso de no existir la informacion del usuario
 }
 ```
 
+## Endpoint para modificar la data de un usuario con un json suministrando el id del usuario a consultar y los parametros a cambiar
+
+> [!NOTE]
+> el username no puede estar siendo utilizado por otro id, ya que te retornara una respuesta con datos del usuario que esta utilizando ese username
+
+```bash
+[
+    {
+        "mensaje": "el username light_yagami esta siendo utilizado por el id 8 ",
+        "username": "light_yagami",
+        "fullname": "Light Yagami"
+    }
+]
+```
+
+```bash
+curl --request POST \
+http://localhost:5000/update_data_user
+```
+
+Json con el id para su busqueda mas los parametros a cambiar, 
+```bash
+{
+    "id": "9",
+    "username": "test_user2",
+    "fullname": "Robin Schulz",
+    "rol": "operator"
+}
+```
+
+respuesta 
+
+```json
+[
+    {
+        "datos": "encontrados",
+        "id": 9,
+        "username": "test_user1",
+        "fullname": "test User1",
+        "rol": "operator"
+    },
+    {
+        "datos": "actualizados",
+        "id": 9,
+        "username": "test_user2",
+        "fullname": "Robin Schulz",
+        "rol": "operator"
+    }
+]
+
+```
+
+Respuesta de no encontrar el id 
+
+```json
+{
+    "message": "la busqueda del id 57 no arrojo resultados"
+}
+```
+
 > [!NOTE]
 > En desarrollo a partir de aqui ^^ ☕ no leer es informacion de otro proyecto -_-
 
