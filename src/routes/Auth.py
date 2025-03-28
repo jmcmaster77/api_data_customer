@@ -34,7 +34,7 @@ def new_user(user_data: Duser):
                                user_data.fullname, user_data.rol, fecha, False)
             db.add(newuser)
             db.commit()
-            return {"message": f"usuario {new_user.username } registrado con el id: {newuser.id}"}
+            return {"message": f"usuario {newuser.username } registrado con el id: {newuser.id}"}
         else:
 
             return {"message": f"usuario: {rc.username} con el id:{rc.id} ya se encuentra registrado"}
@@ -62,7 +62,7 @@ def new_users(user_list: list[Duser]):
                 db.add(newuser)
                 db.commit()
                 mensajes["Resgistros"].append(
-                    {registro: f"usuario {new_user.username } registrado con el id: {newuser.id}"})
+                    {registro: f"usuario {newuser.username } registrado con el id: {newuser.id}"})
             else:
                 registro += 1
                 mensajes["Resgistros"].append(
@@ -154,6 +154,69 @@ def send_user_data(doption: Dparam):
         else:
 
             return {"message": f"la busqueda del usuario con el tipo de busqueda {doption.type} y el parametro {doption.param} no arrojo resultados"}
+
+    except Exception as e:
+        return {"Error": f"recibido pero hay un error: {e}"}
+
+
+class Dparam_to_update(BaseModel):
+    id: str
+    username: str
+    fullname: str
+    rol: str
+
+
+@auth.post("/update_data_user")
+def update_data_user(doption: Dparam_to_update):
+    try:
+        rc = db.query(Usuarios).filter_by(id=int(doption.id)).first()
+
+        if rc is not None:
+
+            # validar que el username no este siendo utlizado por otro usuario 
+
+            valrc = db.query(Usuarios).filter_by(username=doption.username).first()
+
+            if valrc is None:
+
+                data_user = {
+                    "datos": "encontrados",
+                    "id": rc.id,
+                    "username": rc.username,
+                    "fullname": rc.fullname,
+                    "rol": rc.rol,
+                }
+
+                rc.username = doption.username
+                rc.fullname = doption.fullname
+                rc.rol = doption.rol
+                db.commit()
+                data_user_updated = {
+                    "datos": "actualizados",
+                    "id": rc.id,
+                    "username": rc.username,
+                    "fullname": rc.fullname,
+                    "rol": rc.rol,
+                }
+
+                mensaje = []
+                mensaje.append(data_user)
+                mensaje.append(data_user_updated)
+                return mensaje
+            else:
+
+                mensaje = []
+                error = { 
+                    "mensaje" : f"el username {doption.username} esta siendo utilizado por el id {valrc.id} ",
+                    "username" : valrc.username,
+                    "fullname" : valrc.fullname
+                }
+                mensaje.append(error)
+                return mensaje
+
+        else:
+
+            return {"message": f"la busqueda del id {doption.id} no arrojo resultados"}
 
     except Exception as e:
         return {"Error": f"recibido pero hay un error: {e}"}
