@@ -76,14 +76,14 @@ def new_users(user_list: list[Duser]):
 def get_users():
     try:
 
-        # metodo donde me traigo solo los campos y le doy formato a la fecha y empaqueto el json como requiero 
+        # metodo donde me traigo solo los campos y le doy formato a la fecha y empaqueto el json como requiero
 
         registros = db.query(Usuarios).with_entities(
-             Usuarios.id, Usuarios.username, Usuarios.fullname, Usuarios.rol, Usuarios.fecha, Usuarios.deleted).all()
+            Usuarios.id, Usuarios.username, Usuarios.fullname, Usuarios.rol, Usuarios.fecha, Usuarios.deleted).all()
 
         if registros is not None:
             resultado = [
-                
+
                 {
                     "id": row[0],
                     "username": row[1],
@@ -91,15 +91,15 @@ def get_users():
                     "rol": row[3],
                     "fecha": row[4].strftime("%d/%m/%y %H:%M")
                 }
-                
-                for row in registros 
-                    if row[5] is not True 
+
+                for row in registros
+                if row[5] is not True
             ]
 
             return resultado
-        
-        # metodo donde consulto todos los datos obteniendo una lista de objetos pasando 
-        # los resultados a una variable para aplicar un filtro y dar formato a la fecha y solo los datos que desel enviar 
+
+        # metodo donde consulto todos los datos obteniendo una lista de objetos pasando
+        # los resultados a una variable para aplicar un filtro y dar formato a la fecha y solo los datos que desel enviar
 
         # registros = db.query(Usuarios).all()
 
@@ -115,11 +115,45 @@ def get_users():
         #                 "fecha" : registro.fecha.strftime("%d/%m/%y %H:%M"),
         #             }
         #             resultados.append(resultado)
-                    
+
         #     return resultados
         else:
-            
+
             return {"message": "No hay usuarios registrados en la base de datos o.O"}
+
+    except Exception as e:
+        return {"Error": f"recibido pero hay un error: {e}"}
+
+
+class Dparam(BaseModel):
+    type: str
+    param: str
+
+
+@auth.post("/user_info")
+def send_user_data(doption: Dparam):
+
+    try:
+        if doption.type == "id":
+            rc = db.query(Usuarios).filter_by(id=int(doption.param)).first()
+        elif doption.type == "username":
+            rc = db.query(Usuarios).filter_by(username=doption.param).first()
+
+        if rc is not None:
+            data_user = {
+                "id": rc.id,
+                "username": rc.username,
+                "fullname": rc.fullname,
+                "rol": rc.rol,
+                "registrado": rc.fecha.strftime("%d/%m/%y %H:%M"),
+                "deleted": rc.deleted
+            }
+
+            return data_user
+
+        else:
+
+            return {"message": f"la busqueda del usuario con el tipo de busqueda {doption.type} y el parametro {doption.param} no arrojo resultados"}
 
     except Exception as e:
         return {"Error": f"recibido pero hay un error: {e}"}
