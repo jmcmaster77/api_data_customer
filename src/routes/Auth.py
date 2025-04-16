@@ -173,9 +173,10 @@ def update_data_user(doption: Dparam_to_update):
 
         if rc is not None:
 
-            # validar que el username no este siendo utlizado por otro usuario 
+            # validar que el username no este siendo utlizado por otro usuario
 
-            valrc = db.query(Usuarios).filter_by(username=doption.username).first()
+            valrc = db.query(Usuarios).filter_by(
+                username=doption.username).first()
 
             if valrc is None:
 
@@ -206,14 +207,54 @@ def update_data_user(doption: Dparam_to_update):
             else:
 
                 mensaje = []
-                error = { 
-                    "mensaje" : f"el username {doption.username} esta siendo utilizado por el id {valrc.id} ",
-                    "username" : valrc.username,
-                    "fullname" : valrc.fullname
+                error = {
+                    "mensaje": f"el username {doption.username} esta siendo utilizado por el id {valrc.id} ",
+                    "username": valrc.username,
+                    "fullname": valrc.fullname
                 }
                 mensaje.append(error)
                 return mensaje
 
+        else:
+
+            return {"message": f"la busqueda del id {doption.id} no arrojo resultados"}
+
+    except Exception as e:
+        return {"Error": f"recibido pero hay un error: {e}"}
+
+
+class Dparam_to_mark_deleted(BaseModel):
+    id: str
+    deleted: bool
+
+
+@auth.post("/mark_user_deleted")
+def mark_user_as_deleted(doption: Dparam_to_mark_deleted):
+    try:
+        rc = db.query(Usuarios).filter_by(id=int(doption.id)).first()
+        print("doption", f"id: {doption.id} deleted: {doption.deleted}")
+        if rc is not None:
+
+            data_user = {
+                "datos": "Usuario",
+                "id": rc.id,
+                "username": rc.username,
+                "fullname": rc.fullname,
+                "rol": rc.rol,
+                "deleted": rc.deleted,
+            }
+
+            rc.deleted = doption.deleted
+            db.commit()
+            message_info = {
+                "operation": "successfully",
+                "message": "usuario fue marcado como borrado",
+            }
+
+            message = []
+            message.append(data_user)
+            message.append(message_info)
+            return message
         else:
 
             return {"message": f"la busqueda del id {doption.id} no arrojo resultados"}

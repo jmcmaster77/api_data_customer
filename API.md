@@ -260,16 +260,6 @@ En caso de no existir la informacion del usuario
 > el username no puede estar siendo utilizado por otro id, ya que te retornara una respuesta con datos del usuario que esta utilizando ese username
 
 ```bash
-[
-    {
-        "mensaje": "el username light_yagami esta siendo utilizado por el id 8 ",
-        "username": "light_yagami",
-        "fullname": "Light Yagami"
-    }
-]
-```
-
-```bash
 curl --request POST \
 http://localhost:5000/update_data_user
 ```
@@ -284,7 +274,19 @@ Json con el id para su busqueda mas los parametros a cambiar,
 }
 ```
 
-respuesta 
+Respuesta en caso de que el username este registrado para otro usuario
+
+```bash
+[
+    {
+        "mensaje": "el username light_yagami esta siendo utilizado por el id 8 ",
+        "username": "light_yagami",
+        "fullname": "Light Yagami"
+    }
+]
+```
+
+Respuesta cuando fue encontrada la data del usuario y los cambios realizados.
 
 ```json
 [
@@ -313,6 +315,49 @@ Respuesta de no encontrar el id
     "message": "la busqueda del id 57 no arrojo resultados"
 }
 ```
+
+## Endpoint para marcar la data de un usuario como borrado con un json con el tipo de opcion y un parametro, donde la opcion puede debe ser por id
+
+```bash
+curl --request POST \
+http://localhost:5000/mark_user_deleted
+```
+Json con el id y el parametro deleted.
+
+```bash
+{
+    "id": "4",
+    "deleted": true
+}
+```
+
+Respuesta 
+
+```json
+[
+    {
+        "datos": "Usuario",
+        "id": 4,
+        "username": "eren_jaeger",
+        "fullname": "Eren Jaeger",
+        "rol": "operator",
+        "deleted": false
+    },
+    {
+        "operation": "successfully",
+        "message": "usuario fue marcado como borrado"
+    }
+]
+```
+
+Respuesta en caso de no conseguir el id 
+
+```json
+{
+    "message": "la busqueda del id 56 no arrojo resultados"
+}
+```
+## Generando el Token para un usuario Dev ☕
 
 > [!NOTE]
 > En desarrollo a partir de aqui ^^ ☕ no leer es informacion de otro proyecto -_-
