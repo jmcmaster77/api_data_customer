@@ -323,6 +323,7 @@ Respuesta de no encontrar el id
 curl --request POST \
 http://localhost:5000/mark_user_deleted
 ```
+
 Json con el id y el parametro deleted.
 
 ```bash
@@ -358,7 +359,40 @@ Respuesta en caso de no conseguir el id
     "message": "la busqueda del id 56 no arrojo resultados"
 }
 ```
-## Generando el Token para un usuario Dev ☕
+## Endpoint para generar el Token para un usuario registrado en la base de datos por medio de un json con id, username y el password ☕
+
+```bash
+curl --request POST \
+http://localhost:5000/gen_token
+```
+Json con los parametros id [integer], username y password
+
+```bash
+{
+    "id":1,
+    "username":"awalker",
+    "password":"123456"
+}
+```
+
+Respuesta con el JWT
+
+```json
+{
+    "success": true,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDQ3OTMxMDUsImV4cCI6MTc2MDM0NTEwNSwiaWQiOjEsInVzZXJuYW1lIjoiYXdhbGtlciIsImZ1bGxuYW1lIjoiQWxsYW4gV2Fsa2VyIiwicm9sIjoiYWRtaW4ifQ.raFWDYlhmmz5d_l_IrN4LNzJBa4IkxHtC5CIoFyuMvI"
+}
+```
+
+Respuesta en caso de no conseguir el id o no hacer match username y password con los datos almacenados en la base de datos 
+
+```json
+{
+    "success": false,
+    "message": "token no generado"
+}
+```
+
 
 > [!NOTE]
 > En desarrollo a partir de aqui ^^ ☕ no leer es informacion de otro proyecto -_-

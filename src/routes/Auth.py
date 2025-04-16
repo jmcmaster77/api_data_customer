@@ -1,8 +1,11 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
 from datetime import datetime
-from models.ModelUsersdb import Usuarios
+from schemas.ModelUsersdb import Usuarios
+from services.AuthService import AuthService
+from models.Users import User
 from utils.db import db
+from utils.Security import Security
 from passlib.hash import sha256_crypt
 
 auth = APIRouter()
@@ -261,3 +264,24 @@ def mark_user_as_deleted(doption: Dparam_to_mark_deleted):
 
     except Exception as e:
         return {"Error": f"recibido pero hay un error: {e}"}
+
+
+class User_x_gen_token(BaseModel):
+    id: int
+    username: str
+    password: str
+
+
+# generado un token por user by id
+@auth.post("/gen_token")
+def generacion_token_fou_user(user: User_x_gen_token):
+
+    _user = User(user.id, user.username, user.password, None, None)
+    authenticate_user = AuthService.login_user(_user)
+
+    if authenticate_user != None:
+
+        encode_token = Security.generate_token(authenticate_user)
+        return {"success": True, "token": encode_token}
+    else:
+        return {"success": False, "message": "token no generado"}

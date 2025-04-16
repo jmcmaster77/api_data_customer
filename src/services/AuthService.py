@@ -1,1 +1,25 @@
 from models.Users import User
+from utils.db import db
+from schemas.ModelUsersdb import Usuarios
+from passlib.hash import sha256_crypt
+
+
+class AuthService():
+
+    @classmethod
+    def login_user(cls, user):
+        try:
+            authenticate_user = None
+
+            rc = db.query(Usuarios).filter_by(id=user.id).first()
+
+            if rc is not None:
+
+                if user.username == rc.username and sha256_crypt.verify(user.password, rc.password):
+                    authenticate_user = User(
+                        rc.id, rc.username, None, rc.fullname, rc.rol)
+
+                return authenticate_user
+
+        except Exception as ex:
+            raise Exception(ex)
