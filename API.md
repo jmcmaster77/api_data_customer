@@ -317,6 +317,7 @@ Respuesta de no encontrar el id
 ```
 
 ## Endpoint para marcar la data de un usuario como borrado con un json con el tipo de opcion y un parametro, donde la opcion puede debe ser por id
+# Borrado Logico 
 
 ```bash
 curl --request POST \

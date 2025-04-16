@@ -232,7 +232,7 @@ class Dparam_to_mark_deleted(BaseModel):
 def mark_user_as_deleted(doption: Dparam_to_mark_deleted):
     try:
         rc = db.query(Usuarios).filter_by(id=int(doption.id)).first()
-        print("doption", f"id: {doption.id} deleted: {doption.deleted}")
+#         print("doption", f"id: {doption.id} deleted: {doption.deleted}")
         if rc is not None:
 
             data_user = {
