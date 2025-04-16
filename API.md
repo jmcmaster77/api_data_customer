@@ -362,7 +362,7 @@ Respuesta en caso de no conseguir el id
 ## Endpoint para generar el Token para un usuario registrado en la base de datos por medio de un json con id, username y el password ☕
 
 > [!IMPORTANT]
-> Para el token tiene un tiempo de vida de 180 dias, y esta configurado con el tz Venezuela/Caracas
+> El token tiene un tiempo de vida de 180 dias, y esta configurado con el tz Venezuela/Caracas
 
 ```bash
 curl --request POST \
