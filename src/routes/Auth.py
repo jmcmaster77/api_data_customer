@@ -1,13 +1,16 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends, Security, status
+from fastapi.responses import JSONResponse
+from fastapi.security.api_key import APIKeyHeader
 from pydantic import BaseModel
 from datetime import datetime
 from schemas.ModelUsersdb import Usuarios
 from services.AuthService import AuthService
 from models.Users import User
 from utils.db import db
-from utils.Security import Security
+from utils.Security import SecurityToken
 from passlib.hash import sha256_crypt
-
+from datetime import datetime
+import pytz
 auth = APIRouter()
 
 
@@ -281,7 +284,47 @@ def generacion_token_fou_user(user: User_x_gen_token):
 
     if authenticate_user != None:
 
-        encode_token = Security.generate_token(authenticate_user)
+        encode_token = SecurityToken.generate_token(authenticate_user)
         return {"success": True, "token": encode_token}
     else:
-        return {"success": False, "message": "token no generado"}
+        return {"success": False, "message": "token no generado validar datos enviados"}
+
+
+token_key = APIKeyHeader(name="Authorization")
+
+# validando el token generado
+
+
+def get_current_token(auth_key: str = Security(token_key)):
+    return auth_key
+
+
+class Token(BaseModel):
+    token: str
+
+
+@auth.post("/verify_token", status_code=status.HTTP_200_OK)
+def verify_token(token: Token = Depends(get_current_token)):
+    # print("token", token)
+    tz = pytz.timezone("America/Caracas")
+    payload = SecurityToken.verify_token(token)
+
+    # print("payload", type(payload))
+    # print("payload", payload["id"])
+
+    if isinstance(payload, dict):
+        # print("payload", payload)
+        message = []
+        message.append({"message": "Token Valido"})
+        payload['iat'] = datetime.fromtimestamp(
+            payload['iat'], tz).strftime('%d de %B de %Y, %H:%M:%S UTC')
+        payload['exp'] = datetime.fromtimestamp(
+            payload['exp'], tz).strftime('%d de %B de %Y, %H:%M:%S UTC')
+        message.append(payload)
+        return message
+    else:
+        # print("Error", payload)
+        message = []
+        message.append({"message": f"Token error: {payload}"})
+        # return {"message": f"Token error: {payload}"}, status.HTTP_401_UNAUTHORIZED
+        return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content=message)

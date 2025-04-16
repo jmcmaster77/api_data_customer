@@ -395,18 +395,59 @@ Respuesta en caso de no conseguir el id o no hacer match username y password con
     "message": "token no generado"
 }
 ```
+## Endpoint para validar el Token ☕
 
+```bash
+curl --request POST \
+http://localhost:5000/verify_token
+```
+
+para validar el token con postman en la pestaña Authorizarion indicar Auth Type API Key, Key Authorization pegar el token en el campo Value, Add to Header de esta manera sera incluido en el header.
+
+o por medio de http://localhost:5000/docs en el boton Autozice colocar el token en el campo value para la APIKeyHeader de nombre Authorizarion
+
+Respuesta para token valido 
+
+Status Code 200 OK
+
+```json
+[
+    {
+        "message": "Token Valido"
+    },
+    {
+        "iat": "16 de April de 2025, 06:32:53 UTC",
+        "exp": "13 de October de 2025, 06:32:53 UTC",
+        "id": 1,
+        "username": "awalker",
+        "fullname": "Allan Walker",
+        "rol": "admin"
+    }
+]
+```
+
+Respuesta para token invalido 
+
+Status Code 401 Unauthorized
+
+```json
+[
+    {
+        "message": "Token error: Signature verification failed"
+    }
+]
+```
 
 > [!NOTE]
 > En desarrollo a partir de aqui ^^ ☕ no leer es informacion de otro proyecto -_-
 
 > [!IMPORTANT]
-> Para gestionar servicios es requerido el siguiente Token Bearer. de utilizar Postman ingresarlo en authenticación Header 
+> Para gestionar servicios es requerido el siguiente Token. de utilizar Postman ingresarlo en authenticación APIKeyHeader de nombre Authorizarion
 
 ## TOKEN Requerido para realizar gestiones
 
 ```bash
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzgyODYxMTgsImV4cCI6MTc1MzgzODExOCwiaWQiOjEsInVzZXJuYW1lciI6ImptYXJ0aW4iLCJmdWxsbmFtZSI6IkpvcmdlIE1hcnRpbiIsInJvbGVzIjpbImFkbWluIiwiZWRpdCJdfQ.UjMFfVUpQeXMx9xKAqcsK8Yfu_G7C1mBPQSTvZ4HVw0
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDQ3OTk1NzMsImV4cCI6MTc2MDM1MTU3MywiaWQiOjEsInVzZXJuYW1lIjoiYXdhbGtlciIsImZ1bGxuYW1lIjoiQWxsYW4gV2Fsa2VyIiwicm9sIjoiYWRtaW4ifQ.nkHg4MRm8fS5MQ1019SqksmdAiswY8bA7OawkLC_-sI
 ```
 Registrando el token en la interface web
 
