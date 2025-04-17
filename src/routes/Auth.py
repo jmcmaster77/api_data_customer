@@ -114,7 +114,7 @@ def new_users(user_list: list[Duser], received_token: Token = Depends(get_curren
 @auth.get("/users")
 def get_users(received_token: Token = Depends(get_current_token)):
     has_access = SecurityToken.verify_token_admin(received_token)
-    print("has_access", has_access)
+
     if has_access is True:
         try:
 
@@ -265,6 +265,34 @@ def update_data_user(doption: Dparam_to_update, received_token: Token = Depends(
                     mensaje.append(data_user)
                     mensaje.append(data_user_updated)
                     return mensaje
+
+                elif valrc.id == rc.id:
+
+                    data_user = {
+                        "datos": "encontrados",
+                        "id": rc.id,
+                        "username": rc.username,
+                        "fullname": rc.fullname,
+                        "rol": rc.rol,
+                    }
+
+                    rc.username = doption.username
+                    rc.fullname = doption.fullname
+                    rc.rol = doption.rol
+                    db.commit()
+                    data_user_updated = {
+                        "datos": "actualizados",
+                        "id": rc.id,
+                        "username": rc.username,
+                        "fullname": rc.fullname,
+                        "rol": rc.rol,
+                    }
+
+                    mensaje = []
+                    mensaje.append(data_user)
+                    mensaje.append(data_user_updated)
+                    return mensaje
+
                 else:
 
                     mensaje = []
@@ -318,7 +346,7 @@ def mark_user_as_deleted(doption: Dparam_to_mark_deleted, received_token: Token 
                 db.commit()
                 message_info = {
                     "operation": "successfully",
-                    "message": "usuario fue marcado como borrado",
+                    "message": f"usuario fue marcado con la condicion borrado {doption.deleted}",
                 }
 
                 message = []
@@ -375,15 +403,31 @@ def verify_token(token: Token = Depends(get_current_token)):
 
     if isinstance(payload, dict):
         # print("payload", payload)
+        _user = User(payload['id'], payload['username'], None, None, None)
+        isdeleted = AuthService.user_mark_as_deleted(_user)
 
-        message = []
-        message.append({"message": "Token Valido"})
-        payload['iat'] = datetime.fromtimestamp(
-            payload['iat'], tz).strftime('%d de %B de %Y, %H:%M:%S UTC')
-        payload['exp'] = datetime.fromtimestamp(
-            payload['exp'], tz).strftime('%d de %B de %Y, %H:%M:%S UTC')
-        message.append(payload)
-        return message
+        if isdeleted is False:
+            message = []
+            message.append({"message": "Token Valido"})
+            payload['iat'] = datetime.fromtimestamp(
+                payload['iat'], tz).strftime('%d de %B de %Y, %H:%M:%S UTC')
+            payload['exp'] = datetime.fromtimestamp(
+                payload['exp'], tz).strftime('%d de %B de %Y, %H:%M:%S UTC')
+            message.append(payload)
+            return message
+        elif isdeleted is True:
+            message = []
+            message.append({"Warning": "User marcado como borrado"})
+            message.append({"message": "Token Valido"})
+            payload['iat'] = datetime.fromtimestamp(
+                payload['iat'], tz).strftime('%d de %B de %Y, %H:%M:%S UTC')
+            payload['exp'] = datetime.fromtimestamp(
+                payload['exp'], tz).strftime('%d de %B de %Y, %H:%M:%S UTC')
+            message.append(payload)
+            return message
+        elif isdeleted is None:
+            message = {"message": f"User id: {payload['id']} no registrado"}
+            return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content=message)
     else:
         # print("Error", payload)
         message = {"message": f"Token error: {payload}"}

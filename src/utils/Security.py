@@ -1,7 +1,8 @@
 import datetime
 import pytz
 import jwt
-
+from services.AuthService import AuthService
+from models.Users import User
 from config.setting import sk
 
 
@@ -41,10 +42,19 @@ class SecurityToken():
         if (len(token) > 0):
             try:
                 payload = jwt.decode(token, cls.jwt_key, algorithms=["HS256"])
-                if payload['rol'] == "admin":
-                    return True
-                else:
-                    return False
+                _user = User(payload['id'], None, None, None, None)
+
+                isdeleted = AuthService.user_mark_as_deleted(_user)
+
+                if isdeleted is False:
+                    if payload['rol'] == "admin":
+                        return True
+                    else:
+                        return False
+                elif isdeleted is True:
+                    return "User marcado como borrado"
+                elif isdeleted is None:
+                    return f"User id:payload['id'] no registrado"
             except (jwt.ExpiredSignatureError, jwt.InvalidSignatureError, jwt.InvalidTokenError) as ex:
                 return ex
 
