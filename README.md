@@ -30,4 +30,6 @@ http://localhost:5000/docs
 
 En el siguiente apartado, se puede ver la documentación mas detallasa de la api.
 
-[Documentación detallada](API.md)
+[Documentación detallada para generar token, verificar token, crear, usuario, usuarios por lote, consultar lote de usuarios, informacion detalla del usuario, modificar, marcar como borrado, y recuperar usuario borrado](API.md)
+
+[Documentación detallada para operaciones de extracion de data](API2.md)

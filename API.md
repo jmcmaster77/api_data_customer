@@ -17,6 +17,15 @@ curl --request GET \
     "status": "Server Up"
 }
 ```
+> [!IMPORTANT]
+> Solo un usuario como rol de admin podra realizar gestion en los endpoint para crear usuario, usuarios, consultar, modificar y marcar como borrado
+
+JWT para realizar gestion - tambien se puede generar un token nuevo en caso de requerirlo en el endpoint gen token con id, username y el password 
+
+```bash
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDQ3OTMxMDUsImV4cCI6MTc2MDM0NTEwNSwiaWQiOjEsInVzZXJuYW1lIjoiYXdhbGtlciIsImZ1bGxuYW1lIjoiQWxsYW4gV2Fsa2VyIiwicm9sIjoiYWRtaW4ifQ.raFWDYlhmmz5d_l_IrN4LNzJBa4IkxHtC5CIoFyuMvI
+
+```
 
 ### Endpoint para agregar un usuario
 ```bash
@@ -363,6 +372,7 @@ Respuesta en caso de no conseguir el id
 
 > [!IMPORTANT]
 > El token tiene un tiempo de vida de 180 dias, y esta configurado con el tz Venezuela/Caracas
+> No se puede generar un token para un usuario marcado como borrado
 
 ```bash
 curl --request POST \

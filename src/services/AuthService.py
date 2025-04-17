@@ -14,12 +14,15 @@ class AuthService():
             rc = db.query(Usuarios).filter_by(id=user.id).first()
 
             if rc is not None:
+                # Devs Notes Si el Usuario esta marcado como borrado no generar token 
+                if rc.deleted:
+                    return "User has been mark as Deleted"
+                else:
+                    if user.username == rc.username and sha256_crypt.verify(user.password, rc.password):
+                        authenticate_user = User(
+                            rc.id, rc.username, None, rc.fullname, rc.rol)
 
-                if user.username == rc.username and sha256_crypt.verify(user.password, rc.password):
-                    authenticate_user = User(
-                        rc.id, rc.username, None, rc.fullname, rc.rol)
-
-                return authenticate_user
+                    return authenticate_user
 
         except Exception as ex:
             raise Exception(ex)
