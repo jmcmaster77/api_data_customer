@@ -23,38 +23,56 @@ http://localhost:5000/docs
 > [!TIP] 
 > verificar que el servidor está en ejecución
 
-## Requerimientos e instalación 
+### Requerimientos e instalación 
 
 Se recomienda un entorno virtual. 
 
-## configurando el entorno virtual 
+### Configurando el entorno virtual 
 
 ```bash
 python -m virtualenv venv
 ```
 
-## activando el entorno virtual en windows (cmd)
+### Activando el entorno virtual en windows (cmd)
 
 ```bash
 .\venv\Scripts\activate.bat
 ```
 
-## activando el entorno virtual en windows (powershell)
+### Activando el entorno virtual en windows (powershell)
 
 ```bash
 .\venv\Scripts\Activate.ps1
 ```
 
-## activando el entorno virtual en linux
+### Activando el entorno virtual en linux
 
 ```bash
 source ./venv/bin/activate
 ```
 
-## instalado las dependencias
+### Instalado las dependencias
 
 ```bash
 pip install -r requirements.txt
+```
+
+### Base de dato 
+
+api_data_customers
+
+entre los archivos hay un respaldo de la bd api_data_customers_20425.db
+
+para restaurar por powershell 
+
+```bash
+Get-Content api_data_customers_20425.db | mariadb -u root -p api_data_customers
+```
+
+### Realizar respaldo a la base de datos 
+
+```bash
+mariadb-dump -u root -p api_data_customers > api_data_customers_20425.db
 ```
 
 ### Documentación adicional 
