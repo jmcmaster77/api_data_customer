@@ -7,6 +7,7 @@ from schemas.ModelUsersdb import Usuarios
 from services.AuthService import AuthService
 from models.Users import User
 from utils.db import db
+from utils.log import logger
 from utils.Security import SecurityToken
 from passlib.hash import sha256_crypt
 from datetime import datetime
@@ -16,6 +17,7 @@ auth = APIRouter()
 
 @auth.get("/")
 def test_server():
+    logger.info("server request status send ok")
     return {"status": "Server Up"}
 
 
@@ -41,6 +43,7 @@ class Duser(BaseModel):
 @auth.post("/create_user")
 def new_user(user_data: Duser, received_token: Token = Depends(get_current_token)):
     has_access = SecurityToken.verify_token_admin(received_token)
+    payload = SecurityToken.verify_token(received_token)
     if has_access is True:
 
         try:
@@ -56,18 +59,26 @@ def new_user(user_data: Duser, received_token: Token = Depends(get_current_token
                                    user_data.fullname, user_data.rol, fecha, False)
                 db.add(newuser)
                 db.commit()
+                logger.info(
+                    f"Usuario id: {newuser.id} - {newuser.username} registrado  por {payload['id']} - {payload['username']}")
                 return {"message": f"usuario {newuser.username } registrado con el id: {newuser.id}"}
             else:
-
+                logger.error(
+                    f"usuario: {rc.username} con el id:{rc.id} ya se encuentra registrado")
                 return {"message": f"usuario: {rc.username} con el id:{rc.id} ya se encuentra registrado"}
 
         except Exception as e:
+            logger.error(f"Excepción: {e}")
             return {"Error": f"recibido pero hay un error: {e}"}
 
     elif has_access is not True and has_access is not False:
+        logger.error(
+            f"se intento registrar un usuario error: {has_access}")
         message = {"message": f"Error: {has_access}"}
         return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content=message)
     elif has_access is False:
+        logger.warning(
+            f"se intento registrar un usuario por {payload['id']} - {payload['username']} sin autorizacion")
         message = {"message": "Usuario no tiene autorizacion"}
         return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content=message)
 
@@ -75,6 +86,7 @@ def new_user(user_data: Duser, received_token: Token = Depends(get_current_token
 @auth.post("/create_users")
 def new_users(user_list: list[Duser], received_token: Token = Depends(get_current_token)):
     has_access = SecurityToken.verify_token_admin(received_token)
+    payload = SecurityToken.verify_token(received_token)
     if has_access is True:
 
         try:
@@ -94,19 +106,28 @@ def new_users(user_list: list[Duser], received_token: Token = Depends(get_curren
                                        user_data.fullname, user_data.rol, fecha, False)
                     db.add(newuser)
                     db.commit()
+                    logger.info(
+                        f"Usuario id: {newuser.id} - {newuser.username} registrado  por {payload['id']} - {payload['username']}")
                     mensajes["Resgistros"].append(
                         {registro: f"usuario {newuser.username } registrado con el id: {newuser.id}"})
                 else:
                     registro += 1
+                    logger.error(
+                        f"usuario: {rc.username} con el id:{rc.id} ya se encuentra registrado")
                     mensajes["Resgistros"].append(
                         {registro: f"usuario: {rc.username} con el id:{rc.id} ya se encuentra registrado"})
             return {"result": mensajes}
         except Exception as e:
+            logger.error(f"Excepción: {e}")
             return {"Error": f"recibido pero hay un error: {e}"}
     elif has_access is not True and has_access is not False:
+        logger.error(
+            f"se intento registrar un usuario error: {has_access}")
         message = {"message": f"Error: {has_access}"}
         return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content=message)
     elif has_access is False:
+        logger.warning(
+            f"se intento registrar un usuario por {payload['id']} - {payload['username']} sin autorizacion")
         message = {"message": "Usuario no tiene autorizacion"}
         return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content=message)
 
@@ -114,8 +135,9 @@ def new_users(user_list: list[Duser], received_token: Token = Depends(get_curren
 @auth.get("/users")
 def get_users(received_token: Token = Depends(get_current_token)):
     has_access = SecurityToken.verify_token_admin(received_token)
-
+    payload = SecurityToken.verify_token(received_token)
     if has_access is True:
+
         try:
 
             # metodo donde me traigo solo los campos y le doy formato a la fecha y empaqueto el json como requiero
@@ -137,7 +159,8 @@ def get_users(received_token: Token = Depends(get_current_token)):
                     for row in registros
                     if row[5] is not True
                 ]
-
+                logger.info(
+                    f"Lista de usuarios solicitada por {payload['id']} - {payload['username']}")
                 return resultado
 
             # metodo donde consulto todos los datos obteniendo una lista de objetos pasando
@@ -160,15 +183,23 @@ def get_users(received_token: Token = Depends(get_current_token)):
 
             #     return resultados
             else:
-
+                logger.info(
+                    f"Lista de usuarios solicitada por {payload['id']} - {payload['username']}")
+                logger.error(
+                    "No hay usuarios registrados en la base de datos o.O")
                 return {"message": "No hay usuarios registrados en la base de datos o.O"}
 
         except Exception as e:
+            logger.error(f"Excepción: {e}")
             return {"Error": f"recibido pero hay un error: {e}"}
     elif has_access is not True and has_access is not False:
+        logger.error(
+            f"Se intento solicitar una lista de usuario error: {has_access}")
         message = {"message": f"Error: {has_access}"}
         return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content=message)
     elif has_access is False:
+        logger.warning(
+            f"Se intento solicitar una lista de usuario por {payload['id']} - {payload['username']} sin autorizacion")
         message = {"message": "Usuario no tiene autorizacion"}
         return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content=message)
 
@@ -181,6 +212,7 @@ class Dparam(BaseModel):
 @auth.post("/user_info")
 def send_user_data(doption: Dparam, received_token: Token = Depends(get_current_token)):
     has_access = SecurityToken.verify_token_admin(received_token)
+    payload = SecurityToken.verify_token(received_token)
     if has_access is True:
 
         try:
@@ -200,19 +232,29 @@ def send_user_data(doption: Dparam, received_token: Token = Depends(get_current_
                     "registrado": rc.fecha.strftime("%d/%m/%y %H:%M"),
                     "deleted": rc.deleted
                 }
-
+                logger.info(
+                    f"Se consulta usuario con el tipo de busqueda {doption.type} y el parametro {doption.param} solicitada por {payload['id']} - {payload['username']}")
+                logger.info(
+                    f"Se consulto informacion del usuario {rc.id} - {rc.username} solicitada por {payload['id']} - {payload['username']}")
                 return data_user
 
             else:
-
+                logger.info(
+                    f"Se consulta usuario con el tipo de busqueda {doption.type} y el parametro {doption.param} solicitada por {payload['id']} - {payload['username']}")
+                logger.error("la busqueda del usuario no arrojo resultados")
                 return {"message": f"la busqueda del usuario con el tipo de busqueda {doption.type} y el parametro {doption.param} no arrojo resultados"}
 
         except Exception as e:
+            logger.error(f"Excepción: {e}")
             return {"Error": f"recibido pero hay un error: {e}"}
     elif has_access is not True and has_access is not False:
+        logger.error(
+            f"Se intento consultar informacion del usuario {doption.type} - {doption.param} error: {has_access}")
         message = {"message": f"Error: {has_access}"}
         return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content=message)
     elif has_access is False:
+        logger.warning(
+            f"Se intento consultar informacion del usuario {doption.type} - {doption.param} por {payload['id']} - {payload['username']} sin autorizacion")
         message = {"message": "Usuario no tiene autorizacion"}
         return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content=message)
 
@@ -227,6 +269,7 @@ class Dparam_to_update(BaseModel):
 @auth.post("/update_data_user")
 def update_data_user(doption: Dparam_to_update, received_token: Token = Depends(get_current_token)):
     has_access = SecurityToken.verify_token_admin(received_token)
+    payload = SecurityToken.verify_token(received_token)
     if has_access is True:
 
         try:
@@ -264,6 +307,8 @@ def update_data_user(doption: Dparam_to_update, received_token: Token = Depends(
                     mensaje = []
                     mensaje.append(data_user)
                     mensaje.append(data_user_updated)
+                    logger.info(
+                        f"Se modifico informacion del usuario {doption.id} - {doption.username} solicitada por {payload['id']} - {payload['username']}")
                     return mensaje
 
                 elif valrc.id == rc.id:
@@ -291,6 +336,8 @@ def update_data_user(doption: Dparam_to_update, received_token: Token = Depends(
                     mensaje = []
                     mensaje.append(data_user)
                     mensaje.append(data_user_updated)
+                    logger.info(
+                        f"Se modifico informacion del usuario {doption.id} - {doption.username} solicitada por {payload['id']} - {payload['username']}")
                     return mensaje
 
                 else:
@@ -302,6 +349,8 @@ def update_data_user(doption: Dparam_to_update, received_token: Token = Depends(
                         "fullname": valrc.fullname
                     }
                     mensaje.append(error)
+                    logger.error(
+                        f"Se intento modificar informacion del usuario {doption.id} - {doption.username} solicitada por {payload['id']} - {payload['username']}")
                     return mensaje
 
             else:
@@ -309,11 +358,16 @@ def update_data_user(doption: Dparam_to_update, received_token: Token = Depends(
                 return {"message": f"la busqueda del id {doption.id} no arrojo resultados"}
 
         except Exception as e:
+            logger.error(f"Excepción: {e}")
             return {"Error": f"recibido pero hay un error: {e}"}
     elif has_access is not True and has_access is not False:
+        logger.error(
+            f"Se intento modificar informacion del usuario {doption.id} - {doption.username} error: {has_access}")
         message = {"message": f"Error: {has_access}"}
         return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content=message)
     elif has_access is False:
+        logger.warning(
+            f"Se intento modificar informacion del usuario {doption.id} - {doption.username} por {payload['id']} - {payload['username']} sin autorizacion")
         message = {"message": "Usuario no tiene autorizacion"}
         return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content=message)
 
@@ -326,6 +380,7 @@ class Dparam_to_mark_deleted(BaseModel):
 @auth.post("/mark_user_deleted")
 def mark_user_as_deleted(doption: Dparam_to_mark_deleted, received_token: Token = Depends(get_current_token)):
     has_access = SecurityToken.verify_token_admin(received_token)
+    payload = SecurityToken.verify_token(received_token)
     if has_access is True:
 
         try:
@@ -352,18 +407,25 @@ def mark_user_as_deleted(doption: Dparam_to_mark_deleted, received_token: Token 
                 message = []
                 message.append(data_user)
                 message.append(message_info)
+                logger.info(
+                    f"El usuario id {doption.id} fue marcado con la condicion borrado en - {doption.deleted} solicitada por {payload['id']} - {payload['username']}")
                 return message
             else:
-
+                logger.error(f"Al marcar como borrado id {doption.id} la busqueda no arrojo resultados solicitada por {payload['id']} - {payload['username']}")
                 return {"message": f"la busqueda del id {doption.id} no arrojo resultados"}
 
         except Exception as e:
+            logger.error(f"Excepción: {e}")
             return {"Error": f"recibido pero hay un error: {e}"}
     elif has_access is not True and has_access is not False:
+        logger.error(
+            f"Se intento marcar el usuario id {doption.id} con la condicion borrada en - {doption.deleted} error: {has_access}")
         message = {"message": f"Error: {has_access}"}
         return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content=message)
     elif has_access is False:
         message = {"message": "Usuario no tiene autorizacion"}
+        logger.warning(
+            f"Se intento marcar el usuario id {doption.id} con la condicion borrada en - {doption.deleted} por {payload['id']} - {payload['username']} sin autorizacion")
         return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content=message)
 
 
@@ -382,13 +444,19 @@ def generacion_token_fou_user(user: User_x_gen_token):
 
     if authenticate_user != None:
         if authenticate_user == "User has been mark as Deleted":
+            logger.error(
+                f"Error al generar token para el usuario id {user.id} {user.username} error usuario marcado como borrado")
             message = {"message": f"Token no generated: {authenticate_user}"}
             return JSONResponse(status_code=status.HTTP_412_PRECONDITION_FAILED, content=message)
 
         else:
             encode_token = SecurityToken.generate_token(authenticate_user)
+            logger.info(
+                f"Se genera token para el usuario id {user.id} {user.username} satisfactoriamente")
             return {"success": True, "token": encode_token}
     else:
+        logger.error(
+            f"Error al generar token para el usuario id {user.id} {user.username} error autenticacion")
         return {"success": False, "message": "token no generado validar datos enviados"}
 
 
@@ -414,6 +482,8 @@ def verify_token(token: Token = Depends(get_current_token)):
             payload['exp'] = datetime.fromtimestamp(
                 payload['exp'], tz).strftime('%d de %B de %Y, %H:%M:%S UTC')
             message.append(payload)
+            logger.info(
+                f"Se valida un token para el usuario id {payload['id']} {payload['username']} satisfactoriamente")
             return message
         elif isdeleted is True:
             message = []
@@ -424,11 +494,17 @@ def verify_token(token: Token = Depends(get_current_token)):
             payload['exp'] = datetime.fromtimestamp(
                 payload['exp'], tz).strftime('%d de %B de %Y, %H:%M:%S UTC')
             message.append(payload)
+            logger.warning(
+                f"Se valida un token para el usuario id {payload['id']} {payload['username']} usuario con condicion borrado")
             return message
         elif isdeleted is None:
+            logger.error(
+                f"Error al validar el token para el usuario id {payload['id']} no esta registrado")
             message = {"message": f"User id: {payload['id']} no registrado"}
             return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content=message)
     else:
         # print("Error", payload)
+        logger.error(
+            f"Se intenta validar un token {payload}")
         message = {"message": f"Token error: {payload}"}
         return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content=message)

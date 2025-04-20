@@ -1,0 +1,71 @@
+2025-04-19 20:53:22,204 - INFO - API running on port: 5000
+2025-04-19 21:01:01,669 - INFO - API running on port: 5000
+2025-04-19 22:28:18,853 - INFO - API running on port: 5000
+2025-04-19 22:28:50,639 - INFO - server request status send ok
+2025-04-19 22:29:27,047 - INFO - server request status send ok
+2025-04-19 22:30:03,349 - INFO - server request status send ok
+2025-04-19 22:30:13,120 - INFO - Lista de usuarios solicitada por 1 - awalker
+2025-04-19 22:34:17,497 - INFO - API running on port: 5000
+2025-04-19 22:34:25,483 - INFO - API running on port: 5000
+2025-04-19 22:34:28,099 - ERROR - Se intento solicitar una lista de usuario error: Signature verification failed
+2025-04-19 22:35:45,314 - ERROR - Se intento solicitar una lista de usuario error: Signature verification failed
+2025-04-19 22:35:47,810 - ERROR - Se intento solicitar una lista de usuario error: Signature verification failed
+2025-04-19 22:36:19,176 - INFO - Lista de usuarios solicitada por 1 - awalker
+2025-04-19 22:39:02,519 - INFO - API running on port: 5000
+2025-04-19 22:39:14,139 - ERROR - Se intento solicitar una lista de usuario error: User marcado como borrado
+2025-04-19 22:41:39,066 - INFO - API running on port: 5000
+2025-04-19 22:41:41,716 - WARNING - Se intento solicitar una lista de usuario por 8 - light_yagami sin autorizacion
+2025-04-19 22:44:06,275 - INFO - API running on port: 5000
+2025-04-19 22:44:11,911 - WARNING - Se intento solicitar una lista de usuario por 8 - light_yagami sin autorizacion
+2025-04-19 22:44:21,868 - ERROR - Se intento solicitar una lista de usuario por 7 - luffy_d_monkey error: User marcado como borrado
+2025-04-19 22:47:34,092 - INFO - API running on port: 5000
+2025-04-19 22:48:02,109 - ERROR - Se intento solicitar una lista de usuario por 7 - luffy_d_monkey error: User marcado como borrado
+2025-04-19 22:48:46,402 - INFO - API running on port: 5000
+2025-04-19 22:48:51,753 - ERROR - Se intento solicitar una lista de usuario por error: Signature verification failed
+2025-04-19 22:51:01,584 - INFO - API running on port: 5000
+2025-04-19 22:51:03,358 - ERROR - Se intento solicitar una lista de usuario error: Signature verification failed
+2025-04-19 22:51:13,788 - INFO - Lista de usuarios solicitada por 1 - awalker
+2025-04-19 22:51:23,679 - WARNING - Se intento solicitar una lista de usuario por 8 - light_yagami sin autorizacion
+2025-04-19 22:51:33,224 - ERROR - Se intento solicitar una lista de usuario error: User marcado como borrado
+2025-04-19 22:51:46,476 - INFO - Lista de usuarios solicitada por 1 - awalker
+2025-04-19 22:52:17,014 - INFO - Lista de usuarios solicitada por 1 - awalker
+2025-04-19 22:52:50,116 - INFO - Se consulto informacion del usuario 1 - awalker solicitada por 1 - awalker
+2025-04-19 22:53:21,703 - INFO - Se consulto informacion del usuario 8 - light_yagami solicitada por 1 - awalker
+2025-04-19 22:56:05,793 - INFO - API running on port: 5000
+2025-04-19 22:56:08,813 - INFO - Se consulta usuario con el tipo de busqueda id y el parametro 1 solicitada por 1 - awalker
+2025-04-19 22:56:08,815 - INFO - Se consulto informacion del usuario 1 - awalker solicitada por 1 - awalker
+2025-04-19 22:56:27,812 - INFO - Se consulta usuario con el tipo de busqueda id y el parametro 7 solicitada por 1 - awalker
+2025-04-19 22:56:27,813 - INFO - Se consulto informacion del usuario 7 - luffy_d_monkey solicitada por 1 - awalker
+2025-04-19 22:56:44,856 - INFO - Se consulta usuario con el tipo de busqueda username y el parametro light_yagami solicitada por 1 - awalker
+2025-04-19 22:56:44,857 - INFO - Se consulto informacion del usuario 8 - light_yagami solicitada por 1 - awalker
+2025-04-19 22:58:41,683 - INFO - API running on port: 5000
+2025-04-19 22:58:51,885 - INFO - Se consulta usuario con el tipo de busqueda id y el parametro 57 solicitada por 1 - awalker
+2025-04-19 22:58:51,885 - ERROR - la busqueda del usuario no arrojo resultados
+2025-04-19 22:59:21,709 - INFO - Se consulta usuario con el tipo de busqueda username y el parametro light_yagami_eee solicitada por 1 - awalker
+2025-04-19 22:59:21,710 - ERROR - la busqueda del usuario no arrojo resultados
+2025-04-19 22:59:33,752 - INFO - Se consulta usuario con el tipo de busqueda username y el parametro light_yagami solicitada por 1 - awalker
+2025-04-19 22:59:33,753 - INFO - Se consulto informacion del usuario 8 - light_yagami solicitada por 1 - awalker
+2025-04-19 22:59:43,830 - INFO - Se consulta usuario con el tipo de busqueda id y el parametro 7 solicitada por 1 - awalker
+2025-04-19 22:59:43,831 - INFO - Se consulto informacion del usuario 7 - luffy_d_monkey solicitada por 1 - awalker
+2025-04-19 23:00:12,238 - ERROR - Se intento consultar informacion del usuario id - 7 error: Signature verification failed
+2025-04-19 23:00:41,990 - WARNING - Se intento consultar informacion del usuario id - 7 por 8 - light_yagami sin autorizacion
+2025-04-19 23:03:36,616 - INFO - API running on port: 5000
+2025-04-19 23:03:47,122 - ERROR - usuario: test_1 con el id:10 ya se encuentra registrado
+2025-04-19 23:04:27,370 - ERROR - se intento registrar un usuario error: Signature verification failed
+2025-04-19 23:04:52,889 - ERROR - se intento registrar un usuario error: User marcado como borrado
+2025-04-19 23:05:13,378 - WARNING - se intento registrar un usuario por 8 - light_yagami sin autorizacion
+2025-04-19 23:05:42,191 - ERROR - se intento registrar un usuario error: Signature verification failed
+2025-04-19 23:05:54,424 - INFO - Usuario id: 11 - test_2 registrado  por 1 - awalker
+2025-04-19 23:06:12,349 - ERROR - usuario: test_2 con el id:11 ya se encuentra registrado
+2025-04-19 23:18:01,792 - INFO - API running on port: 5000
+2025-04-19 23:18:02,917 - ERROR - usuario: naruto_uzumaki con el id:2 ya se encuentra registrado
+2025-04-19 23:18:02,919 - ERROR - usuario: sakura_haruno con el id:3 ya se encuentra registrado
+2025-04-19 23:18:02,921 - ERROR - usuario: eren_jaeger con el id:4 ya se encuentra registrado
+2025-04-19 23:18:02,923 - ERROR - usuario: mikasa_ackerman con el id:5 ya se encuentra registrado
+2025-04-19 23:18:02,925 - ERROR - usuario: goku_saiyan con el id:6 ya se encuentra registrado
+2025-04-19 23:18:02,928 - ERROR - usuario: luffy_d_monkey con el id:7 ya se encuentra registrado
+2025-04-19 23:18:02,931 - ERROR - usuario: light_yagami con el id:8 ya se encuentra registrado
+2025-04-19 23:29:41,074 - INFO - API running on port: 5000
+2025-04-19 23:29:46,435 - WARNING - Se valida un token para el usuario id 7 luffy_d_monkey usuario con condicion borrado
+2025-04-19 23:29:55,220 - WARNING - Se valida un token para el usuario id 2 naruto_uzumaki usuario con condicion borrado
+2025-04-19 23:30:29,383 - INFO - Se valida un token para el usuario id 8 light_yagami satisfactoriamente
