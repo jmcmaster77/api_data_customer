@@ -19,7 +19,7 @@ JWT de un operator
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDQ4NzI4OTEsImV4cCI6MTc2MDQyNDg5MSwiaWQiOjUsInVzZXJuYW1lIjoibWlrYXNhX2Fja2VybWFuIiwiZnVsbG5hbWUiOiJNaWthc2EgQWNrZXJtYW4iLCJyb2wiOiJvcGVyYXRvciJ9.MlxAMpEigJZ8D5BqDoNg4oTZUrbaiIw86Gqk_gwFpN4
 ```
 
-## Consulta del log 
+## Endpoint para consulta del log 
 
 > [!IMPORTANT]
 > Solo puede ser solicitada por un usuario que tenga rol de admin
@@ -55,6 +55,39 @@ En caso de ser solicitada por un usuario con rol de operador
 {
     "message": "Usuario no tiene autorizacion"
 }
+```
+## Endpoint para enviar archivo de carga de datos a la bd
+
+```bash
+curl --request POST \
+  --url http://127.0.0.1:5000/incoming
+```
+
+> [!NOTE]
+> Este archivo debe llevar el siguiente formato
+filename.txt
+
+```bash
+1|2922.14|50403|01140230512300079116|3|454|0|04/04/2025|04/03/2025|0
+1|2255.58|50403|01140525815250150212|3|454|0|04/04/2025|04/03/2025|0
+1|2579.25|50403|01140525825250150158|3|454|0|04/04/2025|04/03/2025|0
+1|1651.59|50403|01140525815250150220|3|454|0|04/04/2025|04/03/2025|0
+1|402.62|50403|01140525815250150131|3|454|0|04/04/2025|04/03/2025|0
+1|132.93|50403|01140525845250150174|3|454|0|04/04/2025|04/03/2025|0
+1|906.96|50403|01140525855250150182|3|454|0|04/04/2025|04/03/2025|0
+```
+
+Respuesta 
+
+```json
+[
+    {
+        "message": "archivo insumo_ccerac_old.txt recibido generado"
+    },
+    {
+        "archivo generado": "P:\\CODE\\py3\\api_data_customer\\src\\incoming\\insumo_ccerac_old_20-04-2025_14_11_09.txt"
+    }
+]
 ```
 
 > [!CAUTION]

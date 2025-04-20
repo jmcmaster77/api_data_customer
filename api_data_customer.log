@@ -74,3 +74,27 @@
 2025-04-20 00:12:15,895 - INFO - Solicitud del log por 1 - awalker
 2025-04-20 00:12:45,733 - INFO - Solicitud del log por 1 - awalker
 2025-04-20 00:21:42,880 - WARNING - Se intento solicitar el log por 8 - light_yagami sin autorizacion
+2025-04-20 01:36:08,037 - INFO - API running on port: 5000
+2025-04-20 01:36:40,369 - INFO - archivo insumo_ccerac_old.txt recibido enviado por 8 light_yagami
+2025-04-20 13:00:19,934 - INFO - API running on port: 5000
+2025-04-20 13:10:56,181 - INFO - archivo insumo_ccerac_old.txt recibido enviado por 8 light_yagami
+2025-04-20 13:28:03,858 - INFO - API running on port: 5000
+2025-04-20 13:28:06,068 - INFO - archivo insumo_ccerac_old.txt recibido enviado por 8 light_yagami
+2025-04-20 13:36:04,438 - INFO - API running on port: 5000
+2025-04-20 13:36:08,793 - INFO - archivo insumo_ccerac_old.txt recibido enviado por 8 light_yagami
+2025-04-20 13:39:26,483 - INFO - API running on port: 5000
+2025-04-20 13:39:28,342 - INFO - archivo insumo_ccerac_old.txt recibido enviado por 8 light_yagami
+2025-04-20 13:43:05,413 - INFO - API running on port: 5000
+2025-04-20 13:43:07,719 - ERROR - Se intento cargar un archivo error: name 'incoming_ruta' is not defined
+2025-04-20 13:43:31,659 - INFO - API running on port: 5000
+2025-04-20 13:43:34,514 - INFO - archivo insumo_ccerac_old.txt recibido enviado por 8 light_yagami
+2025-04-20 13:46:53,455 - INFO - API running on port: 5000
+2025-04-20 13:46:57,124 - INFO - archivo insumo_ccerac_old.txt recibido enviado por 8 light_yagami
+2025-04-20 13:53:14,782 - INFO - API running on port: 5000
+2025-04-20 14:03:00,436 - INFO - API running on port: 5000
+2025-04-20 14:03:59,104 - INFO - archivo insumo_ccerac_old.txt recibido enviado por 8 light_yagami
+2025-04-20 14:05:19,675 - INFO - API running on port: 5000
+2025-04-20 14:05:21,533 - INFO - archivo insumo_ccerac_old.txt recibido enviado por 8 light_yagami
+2025-04-20 14:11:07,051 - INFO - API running on port: 5000
+2025-04-20 14:11:09,367 - INFO - archivo insumo_ccerac_old.txt recibido enviado por 8 light_yagami
+2025-04-20 14:11:09,368 - INFO - archivo generado P:\CODE\py3\api_data_customer\src\incoming\insumo_ccerac_old_20-04-2025_14_11_09.txt enviado por 8 light_yagami
