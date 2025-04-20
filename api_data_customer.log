@@ -101,3 +101,15 @@
 2025-04-20 16:25:31,288 - INFO - API running on port: 5000
 2025-04-20 16:26:20,239 - INFO - archivo insumo_ventas.txt recibido enviado por 8 light_yagami
 2025-04-20 16:26:20,240 - INFO - archivo generado P:\CODE\py3\api_data_customer\src\incoming\insumo_ventas_20-04-2025_16_26_20.txt enviado por 8 light_yagami
+2025-04-20 17:19:03,581 - INFO - API running on port: 5000
+2025-04-20 17:21:04,785 - INFO - API running on port: 5000
+2025-04-20 17:25:21,315 - INFO - API running on port: 5000
+2025-04-20 17:27:17,678 - INFO - API running on port: 5000
+2025-04-20 17:27:18,888 - INFO - server request status send ok
+2025-04-20 17:27:30,310 - INFO - Lista de usuarios solicitada por 1 - awalker
+2025-04-20 17:47:11,915 - INFO - API running on port: 5000
+2025-04-20 17:49:54,709 - INFO - server request status send ok
+2025-04-20 17:49:58,951 - INFO - Lista de usuarios solicitada por 1 - awalker
+2025-04-20 17:51:59,605 - INFO - API running on port: 5000
+2025-04-20 17:52:08,280 - INFO - server request status send ok
+2025-04-20 17:52:10,769 - INFO - Lista de usuarios solicitada por 1 - awalker
