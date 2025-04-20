@@ -65,16 +65,30 @@ curl --request POST \
 
 > [!NOTE]
 > Este archivo debe llevar el siguiente formato
-filename.txt
+insumos_ventas.txt
 
 ```bash
-1|2922.14|50403|01140230512300079116|3|454|0|04/04/2025|04/03/2025|0
-1|2255.58|50403|01140525815250150212|3|454|0|04/04/2025|04/03/2025|0
-1|2579.25|50403|01140525825250150158|3|454|0|04/04/2025|04/03/2025|0
-1|1651.59|50403|01140525815250150220|3|454|0|04/04/2025|04/03/2025|0
-1|402.62|50403|01140525815250150131|3|454|0|04/04/2025|04/03/2025|0
-1|132.93|50403|01140525845250150174|3|454|0|04/04/2025|04/03/2025|0
-1|906.96|50403|01140525855250150182|3|454|0|04/04/2025|04/03/2025|0
+4/7/2025|15332813|Jorge Martin|calle Real de Altavista casa #163 piso 2 ap 2 Catia Caracas Venezuela |0414-5506698|jmcmaster77@gmail.com|10.99|1|2
+4/7/2025|11234567|Luke Skywalker|Calle Fuerza, 123, Sector Tatooine, Galaxia Lejana|0414-8735698|luke.skywalker@galaxyfaraway.com|25.50|3|4
+4/7/2025|24356789|Leia Organa|Avenida Rebelión, 456, Distrito Alderaan, Galaxia Central|0424-4561984|leia.organa@rebellionforce.com|15.75|1|3
+4/7/2025|15478902|Han Solo|Paseo Halcón, 789, Puerto Corellia, Sistema Estelar|0412-7895632|han.solo@millenniumfalcon.com|42.30|4|1
+4/7/2025|28945678|Sarah Connor|Calle Skynet, 321, Zona Cyberdyne, Ciudad del Futuro|0414-6984523|sarah.connor@skynetwatcher.com|18.90|2|4
+4/7/2025|17654321|Ellen Ripley|Sector Nostromo, 654, Estación LV-426, Espacio Exterior|0424-5217896|ellen.ripley@nostromo.com|33.45|3|2
+4/7/2025|13467890|John Carter|Plaza Marte, 987, Ciudad Helium, Planeta Rojo|0412-3698541|john.carter@marsadventure.com|27.80|4|1
+4/7/2025|19987654|James T. Kirk|Avenida Estelar, 159, Base Estrella, Flota Espacial|0424-4781236|james.kirk@enterprisefleet.com|60.25|1|3
+4/7/2025|21345678|Spock Vulcan|Calle Lógica, 753, Sector Vulcano, Zona Galáctica|0414-7825693|spock.vulcan@logicalmind.com|12.15|2|4
+4/7/2025|26789012|Jean-Luc Picard|Camino Federación, 246, Sede Enterprise, Cuadrante Alpha|0412-8967542|jean.picard@starfleetcommand.com|29.99|4|2
+4/7/2025|24567890|Nyota Uhura|Calle Comunicación, 369, Distrito Galáctico, Sector Comms|0414-5632147|nyota.uhura@galacticcomms.com|49.50|3|1
+4/7/2025|18903456|Dana Scully|Avenida Expediente X, 852, Zona FBI, Washington DC|0424-8541362|dana.scully@xfilesagent.com|35.20|1|3
+4/7/2025|22345678|Fox Mulder|Calle Verdad, 147, Sector Paranormal, Ciudad Alienígena|0412-7215896|fox.mulder@truthseeker.com|22.40|2|4
+4/7/2025|17567890|Rick Deckard|Camino Blade Runner, 951, Distrito Replicante, Los Ángeles Futurista|0414-6584712|rick.deckard@bladehunter.com|55.85|4|2
+4/7/2025|25432198|Roy Batty|Calle Sueño, 753, Sector Nexus, Ciudad Android|0424-3879541|roy.batty@androiddreams.com|40.00|3|3
+4/7/2025|29456781|Neo Anderson|Avenida Matrix, 369, Piso Red Pill, Ciudad Digital|0412-4978563|neo.anderson@matrixreboot.com|19.75|1|1
+4/7/2025|15678903|Trinity Morpheus|Calle Libertad, 852, Sector Zion, Mundo Subterráneo|0414-6523987|trinity.morpheus@redpilljourney.com|70.90|2|4
+4/7/2025|20765432|Paul Atreides|Camino Arena, 147, Distrito Arrakis, Dunas Eternas|0424-8154723|paul.atreides@arrakislegacy.com|30.10|4|2
+4/7/2025|20765432|Gaius Baltar|Avenida Ciencia, 951, Sector Cylon, Galáctica 12|0412-6379512|gaius.baltar@cylonscience.com|45.25|3|3
+4/7/2025|20765432|Shepard Book|Calle Serenity, 753, Distrito Firefly, Espacio Inexplorado|0414-8936451|shepard.book@serenitycrew.com|28.30|1|1
+4/7/2025|19876543|Kara Thrace|Camino Estelar, 369, Sector Colonial, Flota Espacial|0424-5782163|kara.thrace@galacticpilots.com|50.60|2|4
 ```
 
 Respuesta 
@@ -82,10 +96,10 @@ Respuesta
 ```json
 [
     {
-        "message": "archivo insumo_ccerac_old.txt recibido generado"
+        "message": "archivo insumo_ventas.txt recibido"
     },
     {
-        "archivo generado": "P:\\CODE\\py3\\api_data_customer\\src\\incoming\\insumo_ccerac_old_20-04-2025_14_11_09.txt"
+        "archivo generado": "P:\\CODE\\py3\\api_data_customer\\src\\incoming\\insumo_ventas_20-04-2025_16_26_20.txt"
     }
 ]
 ```

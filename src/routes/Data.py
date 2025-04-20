@@ -77,7 +77,7 @@ async def upload_file(file: UploadFile = File(...), received_token: Token = Depe
                     f"archivo {file.filename} recibido enviado por {payload['id']} {payload['username']}")
                 logger.info(
                     f"archivo generado {file_path} enviado por {payload['id']} {payload['username']}")
-                message = [{"message": f"archivo {file.filename} recibido generado"}]
+                message = [{"message": f"archivo {file.filename} recibido"}]
                 message.append({"archivo generado":f"{file_path}"})
                 return JSONResponse(status_code=status.HTTP_202_ACCEPTED, content=message)
 

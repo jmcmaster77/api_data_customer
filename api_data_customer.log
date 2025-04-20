@@ -98,3 +98,6 @@
 2025-04-20 14:11:07,051 - INFO - API running on port: 5000
 2025-04-20 14:11:09,367 - INFO - archivo insumo_ccerac_old.txt recibido enviado por 8 light_yagami
 2025-04-20 14:11:09,368 - INFO - archivo generado P:\CODE\py3\api_data_customer\src\incoming\insumo_ccerac_old_20-04-2025_14_11_09.txt enviado por 8 light_yagami
+2025-04-20 16:25:31,288 - INFO - API running on port: 5000
+2025-04-20 16:26:20,239 - INFO - archivo insumo_ventas.txt recibido enviado por 8 light_yagami
+2025-04-20 16:26:20,240 - INFO - archivo generado P:\CODE\py3\api_data_customer\src\incoming\insumo_ventas_20-04-2025_16_26_20.txt enviado por 8 light_yagami
