@@ -69,3 +69,7 @@
 2025-04-19 23:29:46,435 - WARNING - Se valida un token para el usuario id 7 luffy_d_monkey usuario con condicion borrado
 2025-04-19 23:29:55,220 - WARNING - Se valida un token para el usuario id 2 naruto_uzumaki usuario con condicion borrado
 2025-04-19 23:30:29,383 - INFO - Se valida un token para el usuario id 8 light_yagami satisfactoriamente
+2025-04-20 00:10:17,894 - INFO - API running on port: 5000
+2025-04-20 00:11:55,336 - WARNING - Se intento solicitar el log por 8 - light_yagami sin autorizacion
+2025-04-20 00:12:15,895 - INFO - Solicitud del log por 1 - awalker
+2025-04-20 00:12:45,733 - INFO - Solicitud del log por 1 - awalker

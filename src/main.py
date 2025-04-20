@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routes import Auth
+from routes import Auth, Data
 from sqlalchemy.orm import Session
 from utils.log import logger
 from config.setting import app_run_port
@@ -8,6 +8,7 @@ import uvicorn
 app = FastAPI()
 
 app.include_router(Auth.auth, tags=["Autenticacion y Gestion JWT"])
+app.include_router(Data.data, tags=["gestion de datos"])
 
 if __name__ == "__main__":
     logger.info("API running on port: " + str(app_run_port))
