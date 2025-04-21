@@ -113,3 +113,70 @@
 2025-04-20 17:51:59,605 - INFO - API running on port: 5000
 2025-04-20 17:52:08,280 - INFO - server request status send ok
 2025-04-20 17:52:10,769 - INFO - Lista de usuarios solicitada por 1 - awalker
+2025-04-20 18:40:29,372 - INFO - API running on port: 5000
+2025-04-20 18:40:31,692 - INFO - Lista de usuarios solicitada por 1 - awalker
+2025-04-20 18:40:36,746 - ERROR - Se intento cargar un archivo error: iterator should return strings, not bytes (the file should be opened in text mode)
+2025-04-20 18:46:37,246 - INFO - API running on port: 5000
+2025-04-20 18:47:12,518 - INFO - server request status send ok
+2025-04-20 18:47:15,845 - INFO - Lista de usuarios solicitada por 1 - awalker
+2025-04-20 18:47:20,585 - ERROR - Se intento cargar un archivo error: could not convert string to float: '33,48'
+2025-04-20 18:54:21,566 - INFO - API running on port: 5000
+2025-04-20 18:54:24,181 - INFO - archivo insumo_ventas_4725.txt recibido enviado por 8 light_yagami
+2025-04-20 18:54:24,182 - INFO - archivo generado P:\CODE\py3\api_data_customer\src\incoming\insumo_ventas_4725_20-04-2025_18_54_24.txt enviado por 8 light_yagami
+2025-04-20 19:13:53,061 - INFO - API running on port: 5000
+2025-04-20 19:14:46,078 - INFO - API running on port: 5000
+2025-04-20 19:15:59,378 - INFO - API running on port: 5000
+2025-04-20 19:16:53,474 - INFO - API running on port: 5000
+2025-04-20 19:22:53,837 - INFO - API running on port: 5000
+2025-04-20 19:22:55,222 - INFO - archivo insumo_ventas_547.txt recibido enviado por 8 light_yagami
+2025-04-20 19:22:55,223 - INFO - archivo generado P:\CODE\py3\api_data_customer\src\incoming\insumo_ventas_547_20-04-2025_19_22_55.txt enviado por 8 light_yagami
+2025-04-20 20:07:03,379 - INFO - API running on port: 5000
+2025-04-20 20:07:05,512 - INFO - archivo insumo_ventas_547.txt recibido enviado por 8 light_yagami
+2025-04-20 20:07:05,513 - INFO - archivo generado P:\CODE\py3\api_data_customer\src\incoming\insumo_ventas_547_20-04-2025_20_07_05.txt enviado por 8 light_yagami
+2025-04-20 20:07:36,968 - INFO - archivo insumo_ventas_547.txt recibido enviado por 8 light_yagami
+2025-04-20 20:07:36,969 - INFO - archivo generado P:\CODE\py3\api_data_customer\src\incoming\insumo_ventas_547_20-04-2025_20_07_36.txt enviado por 8 light_yagami
+2025-04-20 20:08:16,281 - INFO - archivo insumo_ventas_547.txt recibido enviado por 8 light_yagami
+2025-04-20 20:08:16,281 - INFO - archivo generado P:\CODE\py3\api_data_customer\src\incoming\insumo_ventas_547_20-04-2025_20_08_16.txt enviado por 8 light_yagami
+2025-04-20 20:12:57,305 - INFO - API running on port: 5000
+2025-04-20 20:12:59,670 - INFO - archivo insumo_ventas_547.txt recibido enviado por 8 light_yagami
+2025-04-20 20:12:59,671 - INFO - archivo generado P:\CODE\py3\api_data_customer\src\incoming\insumo_ventas_547_20-04-2025_20_12_59.txt enviado por 8 light_yagami
+2025-04-20 20:16:08,197 - INFO - API running on port: 5000
+2025-04-20 20:16:10,437 - INFO - archivo insumo_ventas_547.txt recibido enviado por 8 light_yagami
+2025-04-20 20:16:10,438 - INFO - archivo generado P:\CODE\py3\api_data_customer\src\incoming\insumo_ventas_547_20-04-2025_20_16_10.txt enviado por 8 light_yagami
+2025-04-20 20:17:11,917 - INFO - archivo insumo_ventas_547.txt recibido enviado por 8 light_yagami
+2025-04-20 20:17:11,918 - INFO - archivo generado P:\CODE\py3\api_data_customer\src\incoming\insumo_ventas_547_20-04-2025_20_17_11.txt enviado por 8 light_yagami
+2025-04-20 20:17:33,757 - INFO - API running on port: 5000
+2025-04-20 20:17:37,314 - ERROR - Se intento cargar un archivo error: 'set' object is not subscriptable
+2025-04-20 20:20:29,428 - INFO - API running on port: 5000
+2025-04-20 20:20:31,993 - INFO - archivo insumo_ventas_547.txt recibido enviado por 8 light_yagami
+2025-04-20 20:20:31,995 - INFO - archivo generado P:\CODE\py3\api_data_customer\src\incoming\insumo_ventas_547_20-04-2025_20_20_31.txt enviado por 8 light_yagami
+2025-04-20 20:25:58,717 - INFO - API running on port: 5000
+2025-04-20 20:26:08,168 - ERROR - Se intento cargar un archivo insumo_ventas_547_20-04-2025_20_26_08.txt con lotes diferentes en los registros {'546', '547'}
+2025-04-20 20:26:50,462 - INFO - API running on port: 5000
+2025-04-20 20:26:52,855 - ERROR - Se intento cargar un archivo insumo_ventas_547.txt con lotes diferentes en los registros {'547', '546'}
+2025-04-20 20:51:00,272 - INFO - API running on port: 5000
+2025-04-20 20:51:04,868 - ERROR - Se intento cargar un archivo insumo_ventas_547.txt con lotes diferentes en los registros {'546', '547'} por 8 light_yagami
+2025-04-20 20:54:42,222 - INFO - API running on port: 5000
+2025-04-20 20:54:50,864 - ERROR - Se intento cargar un archivo insumo_ventas_547.txt con lotes diferentes en los registros {'547', '546'} por 8 light_yagami
+2025-04-20 21:02:45,961 - INFO - API running on port: 5000
+2025-04-20 21:03:02,939 - INFO - Se cargo en las ventas el lote 547 de pedidos por 8 light_yagami
+2025-04-20 21:03:02,940 - INFO - archivo insumo_ventas_547.txt recibido enviado por 8 light_yagami
+2025-04-20 21:03:02,941 - INFO - archivo generado P:\CODE\py3\api_data_customer\src\incoming\insumo_ventas_547_20-04-2025_21_03_02.txt enviado por 8 light_yagami
+2025-04-20 21:06:04,042 - INFO - API running on port: 5000
+2025-04-20 21:06:42,912 - ERROR - Se intento cargar un archivo error: (pymysql.err.OperationalError) (1292, "Incorrect datetime value: '4/7/2025' for column `api_data_customers`.`ventas`.`fecha` at row 1")
+[SQL: INSERT INTO `Ventas` (fecha, cedula, cliente_name, direccion, telefono, correo, costo, metodo_pago, estado_pedido, lote) VALUES (%(fecha__0)s, %(cedula__0)s, %(cliente_name__0)s, %(direccion__0)s, %(telefono__0)s, %(correo__0)s, %(costo__0)s, %(metod ... 3521 characters truncated ... (metodo_pago__20)s, %(estado_pedido__20)s, %(lote__20)s) RETURNING `Ventas`.id, `Ventas`.id AS id__1]
+[parameters: {'telefono__0': '0414-5506698', 'lote__0': '547', 'metodo_pago__0': 2, 'estado_pedido__0': 4, 'cliente_name__0': 'Jorge Martin', 'direccion__0': 'calle Real de Altavista casa #163 piso 2 ap 2 Catia Caracas Venezuela ', 'correo__0': 'jmcmaster77@gmail.com', 'cedula__0': '15332813', 'costo__0': 27.23, 'fecha__0': '4/7/2025', 'telefono__1': '0414-8735698', 'lote__1': '547', 'metodo_pago__1': 3, 'estado_pedido__1': 4, 'cliente_name__1': 'Luke Skywalker', 'direccion__1': 'Calle Fuerza, 123, Sector Tatooine, Galaxia Lejana', 'correo__1': 'luke.skywalker@galaxyfaraway.com', 'cedula__1': '11234567', 'costo__1': 22.53, 'fecha__1': '4/7/2025', 'telefono__2': '0424-4561984', 'lote__2': '547', 'metodo_pago__2': 1, 'estado_pedido__2': 4, 'cliente_name__2': 'Leia Organa', 'direccion__2': 'Avenida Rebelión, 456, Distrito Alderaan, Galaxia Central', 'correo__2': 'leia.organa@rebellionforce.com', 'cedula__2': '24356789', 'costo__2': 19.03, 'fecha__2': '4/7/2025', 'telefono__3': '0412-7895632', 'lote__3': '547', 'metodo_pago__3': 4, 'estado_pedido__3': 3, 'cliente_name__3': 'Han Solo', 'direccion__3': 'Paseo Halcón, 789, Puerto Corellia, Sistema Estelar', 'correo__3': 'han.solo@millenniumfalcon.com', 'cedula__3': '15478902', 'costo__3': 57.53, 'fecha__3': '4/7/2025', 'telefono__4': '0414-6984523', 'lote__4': '547', 'metodo_pago__4': 2, 'estado_pedido__4': 4, 'cliente_name__4': 'Sarah Connor', 'direccion__4': 'Calle Skynet, 321, Zona Cyberdyne, Ciudad del Futuro', 'correo__4': 'sarah.connor@skynetwatcher.com', 'cedula__4': '28945678', 'costo__4': 56.49, 'fecha__4': '4/7/2025' ... 110 parameters truncated ... 'telefono__16': '0414-6523987', 'lote__16': '547', 'metodo_pago__16': 3, 'estado_pedido__16': 2, 'cliente_name__16': 'Trinity Morpheus', 'direccion__16': 'Calle Libertad, 852, Sector Zion, Mundo Subterráneo', 'correo__16': 'trinity.morpheus@redpilljourney.com', 'cedula__16': '15678903', 'costo__16': 81.82, 'fecha__16': '4/7/2025', 'telefono__17': '0424-8154723', 'lote__17': '547', 'metodo_pago__17': 1, 'estado_pedido__17': 1, 'cliente_name__17': 'Paul Atreides', 'direccion__17': 'Camino Arena, 147, Distrito Arrakis, Dunas Eternas', 'correo__17': 'paul.atreides@arrakislegacy.com', 'cedula__17': '20765432', 'costo__17': 16.01, 'fecha__17': '4/7/2025', 'telefono__18': '0412-6379512', 'lote__18': '547', 'metodo_pago__18': 4, 'estado_pedido__18': 1, 'cliente_name__18': 'Gaius Baltar', 'direccion__18': 'Avenida Ciencia, 951, Sector Cylon, Galáctica 12', 'correo__18': 'gaius.baltar@cylonscience.com', 'cedula__18': '20765432', 'costo__18': 31.18, 'fecha__18': '4/7/2025', 'telefono__19': '0414-8936451', 'lote__19': '547', 'metodo_pago__19': 3, 'estado_pedido__19': 1, 'cliente_name__19': 'Shepard Book', 'direccion__19': 'Calle Serenity, 753, Distrito Firefly, Espacio Inexplorado', 'correo__19': 'shepard.book@serenitycrew.com', 'cedula__19': '20765432', 'costo__19': 83.56, 'fecha__19': '4/7/2025', 'telefono__20': '0424-5782163', 'lote__20': '547', 'metodo_pago__20': 1, 'estado_pedido__20': 4, 'cliente_name__20': 'Kara Thrace', 'direccion__20': 'Camino Estelar, 369, Sector Colonial, Flota Espacial', 'correo__20': 'kara.thrace@galacticpilots.com', 'cedula__20': '19876543', 'costo__20': 20.45, 'fecha__20': '4/7/2025'}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-04-20 21:15:17,115 - INFO - API running on port: 5000
+2025-04-20 21:15:58,961 - INFO - Se cargo en las ventas el lote 547 de pedidos por 8 light_yagami
+2025-04-20 21:15:58,962 - INFO - archivo insumo_ventas_547.txt recibido enviado por 8 light_yagami
+2025-04-20 21:15:58,963 - INFO - archivo generado P:\CODE\py3\api_data_customer\src\incoming\insumo_ventas_547_20-04-2025_21_15_58.txt enviado por 8 light_yagami
+2025-04-20 21:18:07,511 - ERROR - Se intento cargar un archivo insumo_ventas_547.txt pero el 547 ya existe en la BD por 8 light_yagami
+2025-04-20 21:18:29,289 - INFO - server request status send ok
+2025-04-20 21:18:31,902 - INFO - Lista de usuarios solicitada por 1 - awalker
+2025-04-20 21:18:43,158 - INFO - Se cargo en las ventas el lote 548 de pedidos por 8 light_yagami
+2025-04-20 21:18:43,159 - INFO - archivo insumo_ventas_548.txt recibido enviado por 8 light_yagami
+2025-04-20 21:18:43,160 - INFO - archivo generado P:\CODE\py3\api_data_customer\src\incoming\insumo_ventas_548_20-04-2025_21_18_43.txt enviado por 8 light_yagami
+2025-04-20 21:18:54,057 - INFO - Se cargo en las ventas el lote 549 de pedidos por 8 light_yagami
+2025-04-20 21:18:54,058 - INFO - archivo insumo_ventas_549.txt recibido enviado por 8 light_yagami
+2025-04-20 21:18:54,059 - INFO - archivo generado P:\CODE\py3\api_data_customer\src\incoming\insumo_ventas_549_20-04-2025_21_18_54.txt enviado por 8 light_yagami

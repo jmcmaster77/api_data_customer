@@ -1,0 +1,21 @@
+4/8/2025|15332813|Jorge Martin|calle Real de Altavista casa #163 piso 2 ap 2 Catia Caracas Venezuela |0414-5506698|jmcmaster77@gmail.com|74,52|2|2|548
+4/8/2025|11234567|Luke Skywalker|Calle Fuerza, 123, Sector Tatooine, Galaxia Lejana|0414-8735698|luke.skywalker@galaxyfaraway.com|35,57|3|4|548
+4/8/2025|24356789|Leia Organa|Avenida Rebelión, 456, Distrito Alderaan, Galaxia Central|0424-4561984|leia.organa@rebellionforce.com|38,98|2|1|548
+4/8/2025|15478902|Han Solo|Paseo Halcón, 789, Puerto Corellia, Sistema Estelar|0412-7895632|han.solo@millenniumfalcon.com|64,37|2|1|548
+4/8/2025|28945678|Sarah Connor|Calle Skynet, 321, Zona Cyberdyne, Ciudad del Futuro|0414-6984523|sarah.connor@skynetwatcher.com|89,93|3|4|548
+4/8/2025|17654321|Ellen Ripley|Sector Nostromo, 654, Estación LV-426, Espacio Exterior|0424-5217896|ellen.ripley@nostromo.com|93,66|3|3|548
+4/8/2025|13467890|John Carter|Plaza Marte, 987, Ciudad Helium, Planeta Rojo|0412-3698541|john.carter@marsadventure.com|67,97|3|3|548
+4/8/2025|19987654|James T. Kirk|Avenida Estelar, 159, Base Estrella, Flota Espacial|0424-4781236|james.kirk@enterprisefleet.com|64,12|4|2|548
+4/8/2025|21345678|Spock Vulcan|Calle Lógica, 753, Sector Vulcano, Zona Galáctica|0414-7825693|spock.vulcan@logicalmind.com|52,43|2|3|548
+4/8/2025|26789012|Jean-Luc Picard|Camino Federación, 246, Sede Enterprise, Cuadrante Alpha|0412-8967542|jean.picard@starfleetcommand.com|95,25|3|1|548
+4/8/2025|24567890|Nyota Uhura|Calle Comunicación, 369, Distrito Galáctico, Sector Comms|0414-5632147|nyota.uhura@galacticcomms.com|78,21|3|2|548
+4/8/2025|18903456|Dana Scully|Avenida Expediente X, 852, Zona FBI, Washington DC|0424-8541362|dana.scully@xfilesagent.com|99,64|2|3|548
+4/8/2025|22345678|Fox Mulder|Calle Verdad, 147, Sector Paranormal, Ciudad Alienígena|0412-7215896|fox.mulder@truthseeker.com|42,67|2|2|548
+4/8/2025|17567890|Rick Deckard|Camino Blade Runner, 951, Distrito Replicante, Los Ángeles Futurista|0414-6584712|rick.deckard@bladehunter.com|10,94|1|2|548
+4/8/2025|25432198|Roy Batty|Calle Sueño, 753, Sector Nexus, Ciudad Android|0424-3879541|roy.batty@androiddreams.com|74,88|1|1|548
+4/8/2025|29456781|Neo Anderson|Avenida Matrix, 369, Piso Red Pill, Ciudad Digital|0412-4978563|neo.anderson@matrixreboot.com|10,15|3|4|548
+4/8/2025|15678903|Trinity Morpheus|Calle Libertad, 852, Sector Zion, Mundo Subterráneo|0414-6523987|trinity.morpheus@redpilljourney.com|38,39|3|2|548
+4/8/2025|20765432|Paul Atreides|Camino Arena, 147, Distrito Arrakis, Dunas Eternas|0424-8154723|paul.atreides@arrakislegacy.com|94,46|3|4|548
+4/8/2025|20765432|Gaius Baltar|Avenida Ciencia, 951, Sector Cylon, Galáctica 12|0412-6379512|gaius.baltar@cylonscience.com|21,45|3|2|548
+4/8/2025|20765432|Shepard Book|Calle Serenity, 753, Distrito Firefly, Espacio Inexplorado|0414-8936451|shepard.book@serenitycrew.com|26,35|2|1|548
+4/8/2025|19876543|Kara Thrace|Camino Estelar, 369, Sector Colonial, Flota Espacial|0424-5782163|kara.thrace@galacticpilots.com|41,88|3|2|548

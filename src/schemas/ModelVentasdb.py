@@ -18,8 +18,9 @@ class Ventas(Base):
     costo = Column(Float, nullable=False)
     metodo_pago = Column(Integer, nullable=False)
     estado_pedido = Column(Integer, nullable=False)
+    lote = Column(String(7), nullable=False)
 
-    def __init__(self, fecha, cedula, cliente_name, direccion, telefono, correo, costo, metodo_pago, estado_pedido):
+    def __init__(self, fecha, cedula, cliente_name, direccion, telefono, correo, costo, metodo_pago, estado_pedido, lote):
         self.fecha = fecha
         self.cedula = cedula
         self.cliente_name = cliente_name
@@ -29,3 +30,4 @@ class Ventas(Base):
         self.costo = costo
         self.metodo_pago = metodo_pago
         self.estado_pedido = estado_pedido
+        self.lote = lote
